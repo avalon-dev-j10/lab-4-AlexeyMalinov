@@ -1,84 +1,128 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.sorter.BubbleSort;
+
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
         /*
-         * TODO(Студент): Проинициализируйте массив strings
-         *
-         * Массив слелдует проинициализировать таким образом,
-         * чтобы он содержал 20 строк, расположенных не
+         * Массив из 20 строк, расположенных не
          * по порядку.
          */
-	    String[] strings = null;
+	    String[] strings = new String[20];
+	    strings[0] = "Pushkin";
+	    strings[1] = "Lermontov";
+	    strings[2] = "Tolstoy";
+	    strings[3] = "Bunin";
+	    strings[4] = "Doctoevskiy";
+	    strings[5] = "Mayakovskiy";
+	    strings[6] = "Gorkiy";
+	    strings[7] = "Chernishevskiy";
+	    strings[8] = "Chehov";
+	    strings[9] = "Krilov";
+	    strings[10] = "Ostrovskiy";
+	    strings[11] = "Kuprin";
+	    strings[12] = "Ahmatova";
+	    strings[13] = "Gogol";
+	    strings[14] = "Zoshchenko";
+	    strings[15] = "Tsvetaeva";
+	    strings[16] = "Kropotkin";
+	    strings[17] = "Solzhenitsyn";
+	    strings[18] = "Nabokov";
+	    strings[19] = "Tvardovsky";
 
 	    /*
-	     * TODO(Студент): Проинициализируйте массив persons
-	     *
-	     * 1. Создайте класс, реализующий интерфейс Person.
-	     *
-	     * 2. Проинициализируйте массив persons 20
-	     *    экземплярыми созданного класса.
+	     * Массив из 20 объектов класса User реализующих интерфейс Person
 	     */
-	    Person[] persons = null;
-
+		Random random = new Random();
+	    Person[] persons = new Person[20];
+	    persons[0] = new User("Ivan",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[1] = new User("Alexandr",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[2] =new User("Alexey",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[3] =new User("Nikolay",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[4] =new User("Sergey",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[5]=new User("Fedor",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[6]=new User("Mihail",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[7]=new User("Artem",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[8]=new User("Dmitriy",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[9]=new User("Egor",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[10]=new User("Danial",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[11]=new User("Maksim",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[12]=new User("Nikita",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+	    persons[13]=new User("Vadim",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[14]=new User("Ivan",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[15]=new User("Vlad",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[16]=new User("Alexandr",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[17]=new User("Sergey",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[18]=new User("Artemiy",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
+		persons[19]=new User("Konstantin",new Date((1960 + random.nextInt(40)),
+				(1+random.nextInt(12)),
+				(1+random.nextInt(23))));
         /*
-         * TODO(Студент): Проинициализируйте переменную sort
-         *
-         * 1. Создайте класс, реализующий интерфейс Sort
-         *
-         * 2. Проинициализируйте переменную sort экземпляром
-         *    созданного класса.
+         * Инициализация объекта класса BubbleSort реализующего интерфейс Sort
          */
-        Sort sort = null;
+        Sort sort = new BubbleSort();
 
         /*
-         * TODO(Студент): Проинициализируйте переменную comparator
-         *
-         * 1. Создайте класс, реализующий интерфейс Comparator.
-         *    Подумайте о контексте, в котором будет
-         *    использоваться экземпляр.
-         *
-         * 2. Проинициализируйте переменную comparator
-         *    экземпляром созданного класса.
+         * Инициализация объекта класса stringReversComparator реализующего интерфейс Comparator
          */
-        Comparator comparator = null;
+        Comparator comparator = new stringReversComparator();
 
         /*
-         * TODO(Студент): Отсортируйте массив persons по возрастанию
-         *
-         * 1. Если всё сделано правильно, предложенный вызов
-         *    метода sort должен отсортировать массив по
-         *    возрастанию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по возрастанию.
+		 * Сортировка массива объектов типа Person
          */
         sort.sort(persons);
 
         /*
-         * TODO(Студент): Отсортируйте массив strings по возрастанию
-         *
-         * 1. Если всё сделано правильно, предложенный вызов
-         *    метода sort должен отсортировать массив по
-         *    возрастанию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по возрастанию.
+		 * Сортировка массива объектов типа String по возрастанию
          */
         sort.sort(strings);
 
-        /*
-         * TODO(Студент): Отсортируйте массив strings по убыванию
-         *
-         * 1. Подумайте о том, какой Comparator следует
-         *    передать, чтобы массив сортировался по убыванию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по убыванию.
-         */
+		/*
+		 * Сортировка массива объектов типа String по убыванию
+		 */
         sort.sort(strings, comparator);
     }
 }
