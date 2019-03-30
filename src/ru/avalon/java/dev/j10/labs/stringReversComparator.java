@@ -18,12 +18,7 @@ public class stringReversComparator implements Comparator {
         if (o1 instanceof String && o2 instanceof String){
             String string1 = (String) o1;
             String string2 = (String) o2;
-            if (string1.compareTo(string2) > 0){
-                return -1;
-            } else if (string1.compareTo(string2) < 0){
-                return 1;
-            }
-            return 0;
+            return string2.compareTo(string1);
         }
         return -1;
     }
