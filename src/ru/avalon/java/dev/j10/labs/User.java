@@ -32,20 +32,20 @@ public class User implements Person {
 
     /**
      * {@inheritDoc}
-     * @param o
+     * @param other - любой другой пользователь
      * @return
      */
     @Override
-    public int compareTo(Object o) {
-        if (!(o instanceof User)) {
+    public int compareTo(Object other) {
+        if (!(other instanceof User)) {
             return 1;
-        } else if (name.compareTo(((User) o).name) > 0) {
+        } else if (name.compareTo(((User) other).name) > 0) {
             return 1;
-        } else if (name.compareTo(((User) o).name) < 0) {
+        } else if (name.compareTo(((User) other).name) < 0) {
             return -1;
-        } else if (birthday.compareTo(((User) o).birthday) > 0) {
+        } else if (birthday.compareTo(((User) other).birthday) > 0) {
             return 1;
-        } else if (birthday.compareTo(((User) o).birthday) < 0) {
+        } else if (birthday.compareTo(((User) other).birthday) < 0) {
             return -1;
         }
         return 0;
