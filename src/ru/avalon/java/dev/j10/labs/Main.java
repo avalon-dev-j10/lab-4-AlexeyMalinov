@@ -1,83 +1,96 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.sorter.BubbleSort;
+
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
         /*
-         * TODO(Студент): Проинициализируйте массив strings
-         *
-         * Массив слелдует проинициализировать таким образом,
-         * чтобы он содержал 20 строк, расположенных не
+         * Массив из 20 строк, расположенных не
          * по порядку.
          */
-	    String[] strings = null;
-
-	    /*
-	     * TODO(Студент): Проинициализируйте массив persons
-	     *
-	     * 1. Создайте класс, реализующий интерфейс Person.
-	     *
-	     * 2. Проинициализируйте массив persons 20
-	     *    экземплярыми созданного класса.
-	     */
-	    Person[] persons = null;
+        String[] strings = {
+                "Pushkin",
+                "Lermontov",
+                "Tolstoy",
+                "Bunin",
+                "Doctoevskiy",
+                "Mayakovskiy",
+                "Gorkiy",
+                "Chernishevskiy",
+                "Chehov",
+                "Krilov",
+                "Ostrovskiy",
+                "Kuprin",
+                "Ahmatova",
+                "Gogol",
+                "Zoshchenko",
+                "Tsvetaeva",
+                "Kropotkin",
+                "Solzhenitsyn",
+                "Nabokov",
+                "Tvardovsky",
+        };
 
         /*
-         * TODO(Студент): Проинициализируйте переменную sort
-         *
-         * 1. Создайте класс, реализующий интерфейс Sort
-         *
-         * 2. Проинициализируйте переменную sort экземпляром
-         *    созданного класса.
+         * Массив из 20 объектов класса User реализующих интерфейс Person
          */
-        Sort sort = null;
-
+        String[] nameOfPerson = {
+                "Ivan",
+                "Alexandr",
+                "Alexey",
+                "Nikolay",
+                "Sergey",
+                "Fedor",
+                "Mihail",
+                "Artem",
+                "Dmitriy",
+                "Egor",
+                "Danial",
+                "Maksim",
+                "Nikita",
+                "Vadim",
+                "Vlad",
+                "Artemiy",
+                "Konstantin"
+        };
+        Random random = new Random();
+        Person[] persons = new Person[20];
+        for (int i = 0; i < persons.length; i++) {
+            persons[i] = new User(
+                    nameOfPerson[random.nextInt(nameOfPerson.length)],
+                    new Date(
+                            (1960 + random.nextInt(40)),
+                            (1 + random.nextInt(12)),
+                            (1 + random.nextInt(28)))
+            );
+        }
         /*
-         * TODO(Студент): Проинициализируйте переменную comparator
-         *
-         * 1. Создайте класс, реализующий интерфейс Comparator.
-         *    Подумайте о контексте, в котором будет
-         *    использоваться экземпляр.
-         *
-         * 2. Проинициализируйте переменную comparator
-         *    экземпляром созданного класса.
+         * Инициализация объекта класса BubbleSort реализующего интерфейс Sort
          */
-        Comparator comparator = null;
+        Sort sort = new BubbleSort();
 
         /*
-         * TODO(Студент): Отсортируйте массив persons по возрастанию
-         *
-         * 1. Если всё сделано правильно, предложенный вызов
-         *    метода sort должен отсортировать массив по
-         *    возрастанию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по возрастанию.
+         * Инициализация объекта класса stringReversComparator реализующего интерфейс Comparator
+         */
+        Comparator comparator = new stringReversComparator();
+
+        /*
+         * Сортировка массива объектов типа Person
          */
         sort.sort(persons);
 
         /*
-         * TODO(Студент): Отсортируйте массив strings по возрастанию
-         *
-         * 1. Если всё сделано правильно, предложенный вызов
-         *    метода sort должен отсортировать массив по
-         *    возрастанию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по возрастанию.
+         * Сортировка массива объектов типа String по возрастанию
          */
         sort.sort(strings);
 
         /*
-         * TODO(Студент): Отсортируйте массив strings по убыванию
-         *
-         * 1. Подумайте о том, какой Comparator следует
-         *    передать, чтобы массив сортировался по убыванию.
-         *
-         * 2. С использованием отладчика убедитесь в том,
-         *    что массив отсортирован по убыванию.
+         * Сортировка массива объектов типа String по убыванию
          */
         sort.sort(strings, comparator);
     }

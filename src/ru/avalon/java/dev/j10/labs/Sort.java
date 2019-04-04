@@ -38,4 +38,16 @@ public interface Sort {
      *                   элементов массива {@code array}
      */
     void sort(Object[] array, Comparator comparator);
+
+    /**
+     * Выполняет перестановку элементов массива
+     * @param array
+     * @param i индекс первого элемента
+     * @param j индекс второго элемента
+     */
+    default void swap(Object[]array, int i, int j){
+        Object temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
