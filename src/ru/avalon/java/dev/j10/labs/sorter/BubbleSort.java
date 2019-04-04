@@ -10,12 +10,12 @@ import java.util.Comparator;
 
 public class BubbleSort implements Sort {
 
-    Comparator bubbleSortDefaultComparator = new BubbleSortDefaultComparator();
+    private Comparator bubbleSortDefaultComparator = new BubbleSortDefaultComparator();
 
     /**
      * Компаратор пузырьковой сортировки по умолчанию
      */
-    static class BubbleSortDefaultComparator implements Comparator {
+    private static class BubbleSortDefaultComparator implements Comparator {
 
         /**
          * Выполняет сравнение двух объектов
